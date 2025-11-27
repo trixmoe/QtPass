@@ -114,6 +114,7 @@ int main(int argc, char *argv[]) {
       app.desktop()->screenGeometry(cursorScreen).center();
 #else
   QScreen *screen = QGuiApplication::screenAt(QCursor::pos());
+  if(screen == NULL) screen = QGuiApplication::primaryScreen();
   QPoint cursorScreenCenter = screen->geometry().center();
 #endif
   QRect windowFrameGeo = w.frameGeometry();
